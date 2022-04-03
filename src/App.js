@@ -1,11 +1,12 @@
 import Header from "./components/Header";
+import FeedbackItem from "./components/FeedbackItem";
 
 function App() {
   return (
     <>
       <Header text="feedback UI" />
       <div className="container">
-        <h1>My blog</h1>
+        <FeedbackItem />
       </div>
     </>
   );
