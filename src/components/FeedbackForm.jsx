@@ -9,9 +9,8 @@ function FeedbackForm() {
     console.log(e.target.value, e.target.value.length);
     if (e.target.value === "") {
       setMessage(false);
-      setDisabled(false);
-    }
-    if (e.target.value !== "" && e.target.value.trim().length < 10) {
+      setDisabled(true);
+    } else if (e.target.value !== "" && e.target.value.trim().length < 10) {
       setMessage(true);
       setDisabled(true);
     } else {
