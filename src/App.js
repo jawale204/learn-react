@@ -3,6 +3,7 @@ import FeedbackList from "./components/FeedbackList";
 import { useState } from "react";
 import FeedbackItemList from "./data/FeedbackItemList";
 import FeedbackStats from "./components/FeedbackStats";
+import FeedbackForm from "./components/FeedbackForm";
 
 function App() {
   const [feedbacks, setFeedbacks] = useState(FeedbackItemList);
@@ -18,6 +19,7 @@ function App() {
     <>
       <Header text="feedback UI" />
       <div className="container">
+        <FeedbackForm />
         <FeedbackStats feedbacks={feedbacks} />
         <FeedbackList
           feedbacks={feedbacks}

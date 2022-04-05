@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function FeedbackStats(props) {
   var sum = 0;
   props.feedbacks.forEach((item) => (sum = sum + item.rating));
@@ -9,5 +11,15 @@ function FeedbackStats(props) {
     </div>
   );
 }
+
+FeedbackStats.propTypes = {
+  feedbacks: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      text: PropTypes.string,
+      rating: PropTypes.number,
+    })
+  ),
+};
 
 export default FeedbackStats;
