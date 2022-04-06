@@ -4,7 +4,7 @@ import { useState } from "react";
 import FeedbackItemList from "./data/FeedbackItemList";
 import FeedbackStats from "./components/FeedbackStats";
 import FeedbackForm from "./components/FeedbackForm";
-
+import { v4 as uuid4 } from "uuid";
 function App() {
   const [feedbacks, setFeedbacks] = useState(FeedbackItemList);
 
@@ -15,11 +15,17 @@ function App() {
       })
     );
   };
+
+  const handleSubmit = (newFeedback) => {
+    newFeedback.id = uuid4();
+    console.log(newFeedback);
+    setFeedbacks([newFeedback, ...feedbacks]);
+  };
   return (
     <>
       <Header text="feedback UI" />
       <div className="container">
-        <FeedbackForm />
+        <FeedbackForm handleSubmit={handleSubmit} />
         <FeedbackStats feedbacks={feedbacks} />
         <FeedbackList
           feedbacks={feedbacks}
