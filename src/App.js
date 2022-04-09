@@ -18,7 +18,6 @@ function App() {
 
   const handleSubmit = (newFeedback) => {
     newFeedback.id = uuid4();
-    console.log(newFeedback);
     setFeedbacks([newFeedback, ...feedbacks]);
   };
   return (

@@ -20,7 +20,7 @@ function FeedbackForm(props) {
       setMessage(false);
       setDisabled(false);
     }
-    setReview(e.target.value.trim());
+    setReview(e.target.value);
   };
 
   const handleSelectedrating = (value) => {
