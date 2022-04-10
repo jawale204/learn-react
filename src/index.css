@@ -32,6 +32,10 @@ header {
   margin-bottom: 30px;
 }
 
+.active {
+  background-color: #202142;
+}
+
 .card {
   background-color: #fff;
   color: #333;

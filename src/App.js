@@ -5,9 +5,10 @@ import FeedbackItemList from "./data/FeedbackItemList";
 import FeedbackStats from "./components/FeedbackStats";
 import FeedbackForm from "./components/FeedbackForm";
 import { v4 as uuid4 } from "uuid";
-import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, NavLink } from "react-router-dom";
 import About from "./pages/About";
 import AboutLink from "./components/AboutLink";
+import Card from "./components/shared/Card";
 
 function App() {
   const [feedbacks, setFeedbacks] = useState(FeedbackItemList);
@@ -46,6 +47,25 @@ function App() {
             ></Route>
             <Route path="/about" element={<About />}></Route>
           </Routes>
+          <Card>
+            <NavLink
+              to={{
+                pathname: "/",
+              }}
+              activeclassname="active"
+            >
+              Home
+            </NavLink>
+            <br></br>
+            <NavLink
+              to={{
+                pathname: "/about",
+              }}
+            >
+              About
+            </NavLink>
+          </Card>
+
           <AboutLink />
         </BrowserRouter>
       </div>
