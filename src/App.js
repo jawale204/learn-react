@@ -9,6 +9,7 @@ import { BrowserRouter, Route, Routes, NavLink } from "react-router-dom";
 import About from "./pages/About";
 import AboutLink from "./components/AboutLink";
 import Card from "./components/shared/Card";
+import Param from "./components/Param";
 
 function App() {
   const [feedbacks, setFeedbacks] = useState(FeedbackItemList);
@@ -46,6 +47,7 @@ function App() {
               }
             ></Route>
             <Route path="/about" element={<About />}></Route>
+            <Route path="/param/:id/:name" element={<Param />}></Route>
           </Routes>
           <Card>
             <NavLink
