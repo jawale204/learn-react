@@ -41,7 +41,6 @@ export const FeedbackProvider = ({ children }) => {
   };
 
   const handleEditItem = (item) => {
-    console.log(item);
     setEditFeedbackItem({
       item,
       edit: true,
@@ -55,6 +54,7 @@ export const FeedbackProvider = ({ children }) => {
         handleSubmit,
         handleDelete,
         handleEditItem,
+        editFeedbackItem,
       }}
     >
       {children}
