@@ -10,7 +10,8 @@ function FeedbackForm() {
   const [disabled, setDisabled] = useState(true);
   const [rating, setRating] = useState(10);
 
-  const { handleSubmit, editFeedbackItem } = useContext(FeedbackContext);
+  const { handleSubmit, editFeedbackItem, handleUpdate } =
+    useContext(FeedbackContext);
 
   useEffect(() => {
     if (editFeedbackItem.edit) {
@@ -45,7 +46,12 @@ function FeedbackForm() {
         text: review,
         rating,
       };
-      handleSubmit(newFeedback);
+
+      if (editFeedbackItem.edit === true) {
+        handleUpdate(editFeedbackItem.item.id, newFeedback);
+      } else {
+        handleSubmit(newFeedback);
+      }
     }
 
     setReview("");
