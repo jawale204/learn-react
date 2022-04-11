@@ -4,6 +4,7 @@ const FeedbackContext = createContext();
 
 export const FeedbackProvider = ({ children }) => {
   const [feedbacks, setFeedbacks] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const [editFeedbackItem, setEditFeedbackItem] = useState({
     item: {},
@@ -18,6 +19,7 @@ export const FeedbackProvider = ({ children }) => {
     const feedback = await fetch("/feedback?_sort=id&_order=desc");
     const data = await feedback.json();
     setFeedbacks(data);
+    setIsLoading(false);
   };
 
   const handleSubmit = async (newFeedback) => {
@@ -74,6 +76,7 @@ export const FeedbackProvider = ({ children }) => {
       value={{
         feedbacks,
         editFeedbackItem,
+        isLoading,
         handleSubmit,
         handleDelete,
         handleEditItem,

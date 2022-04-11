@@ -22,7 +22,7 @@ function App() {
                   <>
                     <FeedbackForm />
                     <FeedbackStats />
-                    <FeedbackList></FeedbackList>
+                    <FeedbackList />
                   </>
                 }
               ></Route>
