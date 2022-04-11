@@ -7,10 +7,25 @@ export const FeedbackProvider = ({ children }) => {
   const [feedbacks, setFeedbacks] = useState([
     {
       id: 1,
-      text: "this review is from the context provider",
+      text: "this review is from the context provider 1",
       rating: 10,
     },
+    {
+      id: 2,
+      text: "this review is from the context provider 2",
+      rating: 9,
+    },
+    {
+      id: 3,
+      text: "this review is from the context provider 3",
+      rating: 7,
+    },
   ]);
+
+  const [editFeedbackItem, setEditFeedbackItem] = useState({
+    item: {},
+    edit: false,
+  });
 
   const handleSubmit = (newFeedback) => {
     newFeedback.id = uuid4();
@@ -25,12 +40,21 @@ export const FeedbackProvider = ({ children }) => {
     );
   };
 
+  const handleEditItem = (item) => {
+    console.log(item);
+    setEditFeedbackItem({
+      item,
+      edit: true,
+    });
+  };
+
   return (
     <FeedbackContext.Provider
       value={{
         feedbacks,
         handleSubmit,
         handleDelete,
+        handleEditItem,
       }}
     >
       {children}
