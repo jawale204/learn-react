@@ -8,6 +8,7 @@ import { v4 as uuid4 } from "uuid";
 import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 import About from "./pages/About";
 import AboutLink from "./components/AboutLink";
+import { FeedbackProvider } from "./context/FeedbackContext";
 
 function App() {
   const [feedbacks, setFeedbacks] = useState(FeedbackItemList);
@@ -26,29 +27,31 @@ function App() {
   };
   return (
     <>
-      <Header text="feedback UI" />
-      <div className="container">
-        <BrowserRouter>
-          <Routes>
-            <Route
-              exact
-              path="/"
-              element={
-                <>
-                  <FeedbackForm handleSubmit={handleSubmit} />
-                  <FeedbackStats feedbacks={feedbacks} />
-                  <FeedbackList
-                    feedbacks={feedbacks}
-                    handleDelete={handleDelete}
-                  ></FeedbackList>
-                </>
-              }
-            ></Route>
-            <Route path="/about" element={<About />}></Route>
-          </Routes>
-          <AboutLink />
-        </BrowserRouter>
-      </div>
+      <FeedbackProvider>
+        <Header text="feedback UI" />
+        <div className="container">
+          <BrowserRouter>
+            <Routes>
+              <Route
+                exact
+                path="/"
+                element={
+                  <>
+                    <FeedbackForm handleSubmit={handleSubmit} />
+                    <FeedbackStats feedbacks={feedbacks} />
+                    <FeedbackList
+                      feedbacks={feedbacks}
+                      handleDelete={handleDelete}
+                    ></FeedbackList>
+                  </>
+                }
+              ></Route>
+              <Route path="/about" element={<About />}></Route>
+            </Routes>
+            <AboutLink />
+          </BrowserRouter>
+        </div>
+      </FeedbackProvider>
     </>
   );
 }
