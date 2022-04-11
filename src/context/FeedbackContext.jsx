@@ -1,31 +1,25 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { v4 as uuid4 } from "uuid";
 
 const FeedbackContext = createContext();
 
 export const FeedbackProvider = ({ children }) => {
-  const [feedbacks, setFeedbacks] = useState([
-    {
-      id: 1,
-      text: "this review is from the context provider 1",
-      rating: 10,
-    },
-    {
-      id: 2,
-      text: "this review is from the context provider 2",
-      rating: 9,
-    },
-    {
-      id: 3,
-      text: "this review is from the context provider 3",
-      rating: 7,
-    },
-  ]);
+  const [feedbacks, setFeedbacks] = useState([]);
 
   const [editFeedbackItem, setEditFeedbackItem] = useState({
     item: {},
     edit: false,
   });
+
+  useEffect(() => {
+    fetchFeedbackData();
+  }, []);
+
+  const fetchFeedbackData = async () => {
+    const feedback = await fetch("/feedback");
+    const data = await feedback.json();
+    setFeedbacks(data);
+  };
 
   const handleSubmit = (newFeedback) => {
     newFeedback.id = uuid4();

@@ -1,0 +1,19 @@
+{
+  "feedback": [
+    {
+      "id": 1,
+      "text": "this review 1 is from the json server ",
+      "rating": 9
+    },
+    {
+      "id": 2,
+      "text": "this review 2 is from the json server ",
+      "rating": 6
+    },
+    {
+      "id": 3,
+      "text": "this review 3 is from the json server ",
+      "rating": 7
+    }
+  ]
+}
