@@ -47,7 +47,7 @@ function App() {
               }
             ></Route>
             <Route path="/about" element={<About />}></Route>
-            <Route path="/param/:id/:name" element={<Param />}></Route>
+            <Route path="/param/*" element={<Param />}></Route>
           </Routes>
           <Card>
             <NavLink
