@@ -21,7 +21,6 @@ export const FeedbackProvider = ({ children }) => {
   };
 
   const handleSubmit = async (newFeedback) => {
-    console.log(newFeedback);
     const feedback = await fetch("/feedback", {
       method: "POST",
       headers: {
@@ -33,7 +32,8 @@ export const FeedbackProvider = ({ children }) => {
     setFeedbacks([data, ...feedbacks]);
   };
 
-  const handleDelete = (id) => {
+  const handleDelete = async (id) => {
+    await fetch(`/feedback/${id}`, { method: "DELETE" });
     setFeedbacks(
       feedbacks.filter((item) => {
         return item.id !== id;
