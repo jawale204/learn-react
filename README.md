@@ -1,3 +1,9 @@
+# Hosted on Netlify
+This verion uses context api for storing review 
+
+https://6254072de0d9b74cfe9cc097--dreamy-kitsune-9410c4.netlify.app/
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
